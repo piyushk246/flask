@@ -64,15 +64,15 @@ def plot():
         battery_no = int(request.form['battery_number'])
         image = update_plot(battery_no)
         if image:
-            return render_template('index.html', battery_no=battery_no, image=image)
+            return render_template('test.html', battery_no=battery_no, image=image)
         return "No data available for battery " + str(battery_no)
-    return render_template('index.html')
+    return render_template('test.html')
 
 # Main route
 @app.route('/')
 def index():
     return  render_template('index1.html')
-# "Enter a battery number in the URL to view the real-time plot."
+    # return "Enter a battery number in the URL to view the real-time plot."
 
 if __name__ == "__main__":
     # app.run(debug=True)
