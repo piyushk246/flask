@@ -5,6 +5,15 @@ from io import BytesIO
 import base64
 app = Flask(__name__)
 
+def load_data_from_json(battery_no):
+    file_path = f"battery_data/battery{battery_no}.json"
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+        return data
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+        
 @app.route('/')
 def index():
     return render_template('test.html')
