@@ -1,0 +1,42 @@
+[
+    {
+        "voltage": 141,
+        "current": 10,
+        "temperature": 27
+    },
+    {
+        "voltage": 141,
+        "current": 9,
+        "temperature": 28
+    },
+    {
+        "voltage": 151,
+        "current": 10,
+        "temperature": 28
+    },
+    {
+        "voltage": 151,
+        "current": 10,
+        "temperature": 28
+    },
+    {
+        "voltage": 151,
+        "current": 10,
+        "temperature": 18
+    },
+    {
+        "voltage": 160,
+        "current": 20,
+        "temperature": 27
+    },
+    {
+        "voltage": 150,
+        "current": 25,
+        "temperature": 30
+    },
+    {
+        "voltage": 181,
+        "current": 12,
+        "temperature": 27
+    }
+]
