@@ -70,7 +70,7 @@ def plot():
 # Main route
 @app.route('/')
 def index():
-    return "Enter a battery number in the URL to view the real-time plot."
+    return  render_template('index1.html')
 
 
 if __name__ == '__main__':
