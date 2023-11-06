@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>test flask web</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="this is a test of a flask application">
-		<style>
-			h1 {
-				font-family: Times, serif;
-				color: #2f2d2d;
-				text-align: Center;
-			}
-			p {
-				font-family: Times, serif;
-				font-size: 19px;
-				text-align: Center;
-				color: #2f2d2d;
-				
-			}
-		</style>
-	</head>
-	<body>
-		<h1></h1>
-		<p>this is a test of a flask application My name is Piyush </p>
-	</body>
+<head>
+    <title>Real-time Battery Data Plot</title>
+</head>
+<body>
+    <h1>Real-time Battery Data Plot</h1>
+    
+    <form method="POST" action="/plot">
+        <label for="battery_number">Enter the battery number (e.g., 1, 2, 3, 4):</label>
+        <input type="number" name="battery_number" id="battery_number" required>
+        <button type="submit">Generate Plot</button>
+    </form>
+    
+    <form id="refresh-form" method="POST" action="/plot">
+        <input type="hidden" name="battery_number" value="{{ battery_no }}">
+        <button type="submit">Refresh</button>
+    </form>
+
+    {% if image %}
+    <h2>Battery {{ battery_no }} Data</h2>
+    <img src="data:image/png;base64,{{ image }}" alt="Battery Data Plot">
+    {% endif %}
+    
+    <script>
+        // Function to automatically submit the form every 1 second
+        function autoRefresh() {
+            document.getElementById("refresh-formf").submit();
+        }
+        // Call the autoRefresh function every 1 second
+        setInterval(autoRefresh, 1000); // 1000 milliseconds = 1 second
+    </script>
+</body>
 </html>
