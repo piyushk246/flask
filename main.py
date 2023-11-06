@@ -64,9 +64,9 @@ def plot():
         battery_no = int(request.form['battery_number'])
         image = update_plot(battery_no)
         if image:
-            return render_template('test.html', battery_no=battery_no, image=image)
+            return render_template('index.html', battery_no=battery_no, image=image)
         return "No data available for battery " + str(battery_no)
-    return render_template('test.html')
+    return render_template('index.html')
 
 # Main route
 @app.route('/')
