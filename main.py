@@ -23,24 +23,22 @@ def update_plot(battery_no):
     if not data:
         return None
 
-    fig = Figure(figsize=(8, 8))  # Increase the figure size for the resistance plot
-    ax = fig.subplots(4, 1, sharex=True)
+    fig = Figure(figsize=(8, 6))
+    ax = fig.subplots(3, 1, sharex=True)
     voltage = [entry['voltage'] for entry in data]
     current = [entry['current'] for entry in data]
-    resistance = [voltage[i] / current[i] if current[i] != 0 else 0 for i in range(len(data))]
     temperature = [entry['temperature'] for entry in data]
 
     ax[0].plot(range(len(data)), voltage, label='Voltage')
     ax[1].plot(range(len(data)), current, label='Current')
-    ax[2].plot(range(len(data)), resistance, label='Resistance')  # Add the resistance plot
-    ax[3].plot(range(len(data)), temperature, label='Temperature')
+    ax[2].plot(range(len(data)), temperature, label='Temperature')
 
-    for i in range(4):
-        ax[i].set_ylabel(['Voltage (V)', 'Current (A)', 'Resistance (Ω)', 'Temperature (°C)'][i])
+    for i in range(3):
+        ax[i].set_ylabel(['Voltage (V)', 'Current (A)', 'Temperature (°C)'][i])
 
-    ax[3].set_xlabel('Data Point Index')
+    ax[2].set_xlabel('Data Point Index')
 
-    for i in range(4):
+    for i in range(3):
         ax[i].set_title(f'Battery {battery_no} Data')
         ax[i].legend()
 
@@ -73,7 +71,10 @@ def plot():
 # Main route
 @app.route('/')
 def index():
-    return render_template('index1.html')
+    return  render_template('index1.html')
+# "Enter a battery number in the URL to view the real-time plot."
 
 if __name__ == "__main__":
+    # app.run(debug=True)
+    # app.run(host='0.0.0.0', port=5000)
     app.run(host='0.0.0.0', port=5000, debug=True)
