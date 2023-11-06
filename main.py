@@ -1,6 +1,6 @@
 import json
 from flask import Flask, render_template, request
-# from matplotlib.figure import Figure
+from matplotlib.figure import Figure
 from io import BytesIO
 import base64
 app = Flask(__name__)
